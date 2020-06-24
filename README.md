@@ -1,2 +1,0 @@
-# rapidapp
-electron-dev
