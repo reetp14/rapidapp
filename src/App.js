@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Mainlist from "./components/mainList";
+import "./App.css";
+import axios from "axios";
 
 function App() {
+  const [mainListItems, setMainListItems] = React.useState({ items: [] });
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      let results = await fetch("https://reddit.com/r/aww.json", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      let data = await results.json();
+      setMainListItems({ items: data.data.children });
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Mainlist listitem={mainListItems.items} />
     </div>
   );
 }
