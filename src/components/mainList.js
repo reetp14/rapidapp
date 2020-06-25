@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 const mainList = (props) => {
   var listItems = props.listitem;
@@ -21,4 +22,10 @@ const mainList = (props) => {
   );
 };
 
-export default mainList;
+const mapStateToProps = (state) => {
+  console.log("redux", state);
+
+  return state;
+};
+
+export default connect(mapStateToProps)(mainList);

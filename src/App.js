@@ -2,7 +2,7 @@ import React from "react";
 import Mainlist from "./components/mainList";
 import "./App.css";
 import axios from "axios";
-require("dotenv").config();
+import { selectMainListItem } from "./actions";
 
 function App() {
   const [mainListItems, setMainListItems] = React.useState({ items: [] });
