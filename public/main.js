@@ -14,7 +14,7 @@ function createWindow() {
     width: 900,
     height: 680,
     webPreferences: {
-      nodeIntegration: true,
+      //   nodeIntegration: true,
       webSecurity: true,
     },
   });

@@ -8,19 +8,28 @@ function App() {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      let results = await fetch("https://reddit.com/r/aww.json", {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      });
+      let results = await axios.get("https://www.reddit.com/r/aww.json", {});
 
-      let data = await results.json();
-      setMainListItems({ items: data.data.children });
+      console.log(results.data);
+
+      setMainListItems({ items: results.data.data.children });
     };
+
+    // const fetchPrice = async () => {
+    //   let price = await fetch("https://coingecko.p.rapidapi.com/simple/price", {
+    //     method: "GET",
+    //     mode: "no-cors"
+    //     headers: {
+    //       "x-rapidapi-host": "coingecko.p.rapidapi.com",
+    //       "x-rapidapi-key":
+    //         "3324f6e115msh4cc8dab6fc3f512p1ce99bjsn4395c68d95fc",
+    //     },
+    //   });
+
+    //   console.log(await price);
+    // };
     fetchData();
+    // fetchPrice();
   }, []);
 
   return (
