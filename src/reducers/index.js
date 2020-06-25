@@ -1,21 +1,11 @@
 import { combineReducers } from "redux";
 
-import axios from "axios";
-
 const mainListReducer = () => {
-  const fetchData = async () => {
-    try {
-      var results = await axios.get("https://www.reddit.com/r/aww.json", {});
-
-      return await results.data.data.children;
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  let data = fetchData();
-
-  return data;
+  return [
+    { item: "item1", id: 1 },
+    { item: "item2", id: 2 },
+    { item: "item3", id: 3 },
+  ];
 };
 
 const selectedItemReducer = (selectedItem = null, action) => {
