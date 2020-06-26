@@ -44,8 +44,6 @@
   margin-right: 16px;
 }
 .btn {
-  margin-left: 32px;
-  right: 16px;
   position: relative;
 }
 .content {
@@ -53,13 +51,12 @@
   flex-wrap: nowrap;
   align-items: stretch;
   justify-content: space-between;
+  padding-right: 16px;
 
   opacity: 1;
 }
 .content:hover {
   background-color: #eee;
-
-  opacity: 1;
 }
 .btn-wrap {
   display: flex;
