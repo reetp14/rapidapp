@@ -14,9 +14,9 @@
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
-  margin-bottom: -1px;
+  margin-bottom: 0px;
   background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  /* border: 1px solid rgba(0, 0, 0, 0.125); */
   cursor: pointer;
 }
 .list-group-flush .list-group-item {
@@ -32,12 +32,37 @@
   background-color: #eee;
 }
 .flex-container {
+  width: 90%;
   display: flex;
   align-items: center;
+  opacity: 1;
 }
 .thumbnail {
   width: 60px;
   height: 60px;
   border-radius: 30px;
   margin-right: 16px;
+}
+.btn {
+  margin-left: 32px;
+  right: 16px;
+  position: relative;
+}
+.content {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+
+  opacity: 1;
+}
+.content:hover {
+  background-color: #eee;
+
+  opacity: 1;
+}
+.btn-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
