@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import { selectMainListItem } from "../actions";
 
 const mainList = (props) => {
   var listItems = props.listitem;
-  console.log(props.item);
+  console.log("props", props);
 
   return (
     <div>
@@ -22,7 +23,11 @@ const mainList = (props) => {
               <div>{post.data.title}</div>
             </li>
             <div className="btn-wrap ">
-              <button type="button" className="btn btn-primary">
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => props.selectMainListItem(post)}
+              >
                 Show
               </button>
             </div>
@@ -32,7 +37,11 @@ const mainList = (props) => {
         {props.item.map((it) => (
           <li key={it.id} className="list-group-item flex-container">
             <div>{it.item}</div>
-            <button type="button" className="btn btn-primary">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => props.selectMainListItem(it)}
+            >
               Primary
             </button>
           </li>
@@ -48,4 +57,4 @@ const mapStateToProps = (state) => {
   return state;
 };
 
-export default connect(mapStateToProps)(mainList);
+export default connect(mapStateToProps, { selectMainListItem })(mainList);

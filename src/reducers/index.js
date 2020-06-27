@@ -9,7 +9,7 @@ const mainListReducer = () => {
 };
 
 const selectedItemReducer = (selectedItem = null, action) => {
-  if (action.type === "ITEM_SELCTED") {
+  if (action.type === "ITEM_SELECTED") {
     return action.payload;
   }
 

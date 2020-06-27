@@ -5,13 +5,14 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import App from "./App";
 import reducers from "./reducers";
+import Router from "./Router";
 
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <Provider store={createStore(reducers)}>
     <React.StrictMode>
-      <App />
+      <Router />
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")
