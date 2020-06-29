@@ -47,6 +47,11 @@ function createWindow() {
 
   //mainWindow.webContents.openDevTools();
   mainWindow.on("closed", () => (mainWindow = null));
+
+  popWindow.on("closed", (e) => {
+    e.preventDefault();
+    popWindow.hide();
+  });
 }
 
 app.on("ready", createWindow);
@@ -65,6 +70,8 @@ app.on("activate", () => {
 
 ipcMain.on("toggle-pop", (event, arg) => {
   popWindow.show();
+  //   console.log("arg", arg);
+  popWindow.webContents.send("image", arg);
 });
 
 app.on("activate", () => {
